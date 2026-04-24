@@ -1,1 +1,43 @@
+#include <iostream>
+#include <climits>
+using namespace std;
 
+int main() {
+    int n;
+
+    // Input size
+    cout << "Enter number of elements: ";
+    cin >> n;
+
+    // Edge case check
+    if (n <= 0) {
+        cout << "Invalid array size";
+        return 0;
+    }
+
+    if (n > 1000) {
+        cout << "Size limit exceeded";
+        return 0;
+    }
+
+    int arr[1000];
+
+    // Input array elements
+    cout << "Enter elements:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    // Find largest element
+    int largest = INT_MIN;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] > largest) {
+            largest = arr[i];
+        }
+    }
+
+    // Output result
+    cout << "Largest element: " << largest;
+
+    return 0;
+}
