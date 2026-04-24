@@ -1,0 +1,64 @@
+#include <iostream>
+#include <climits>
+using namespace std;
+
+int main() {
+
+    // Step 1: Input size of array
+    int n;
+    cout << "Enter No. of Elements: ";
+    cin >> n;
+
+    // Step 2: Validate input (array size should be >1)
+    if (n <= 1) {
+        cout << "Invalid Array";
+        return 0;
+    }
+
+    // Step 3: Check size limit
+    if (n > 1000) {
+        cout << "Size limit exceeded";
+        return 0;
+    }
+
+    // Step 4: Declare array
+    int arr[1000];
+
+    // Step 5: Take array input
+    cout << "Enter the elements:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    // Step 6: Initialize two variables
+    // first = largest element
+    // second = second largest element
+    int first = INT_MIN;
+    int second = INT_MIN;
+
+    // Step 7: Traverse array
+    for (int i = 0; i < n; i++) {
+
+        // Step 8: Agar current element sabse bada hai
+        if (arr[i] > first) {
+            // Step 8.1: Purana largest ab second largest ban jayega
+            second = first;
+
+            // Step 8.2: Naya largest update karo
+            first = arr[i];
+        }
+
+        // Step 9: Agar current element second largest ke liye suitable hai
+        // condition:
+        // 1. second se bada ho
+        // 2. first ke equal na ho (duplicate avoid)
+        else if (arr[i] > second && arr[i] != first) {
+            second = arr[i];
+        }
+    }
+
+    // Step 10: Final result print
+    cout << "Second largest: " << second;
+
+    return 0;
+}
