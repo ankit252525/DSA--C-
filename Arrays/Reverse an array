@@ -29,3 +29,9 @@ int main()
         cout << arr[k] << " ";
     }
 }
+
+//To reverse the array without using extra space, I used a two-pointer approach.
+I initialized one pointer at the beginning of the array (i = 0) and another at the end (j = n - 1).
+Then, I swapped the elements at these two positions and moved the pointers towards each other — incrementing i and decrementing j.
+I repeated this process until both pointers met or crossed.
+This way, the array gets reversed in-place without using any additional memory
